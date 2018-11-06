@@ -45,6 +45,25 @@ public set unitPriceDiscount(v : number) {
         this.unitPriceDiscount = linie.UnitPriceDiscount;
     }
 
+/**
+ * BeregnSum
+ */
+public BeregnSum() {
+    return this.orderQty * (this.unitPrice-this.unitPriceDiscount);
+}
 
+/**
+ * BeregnMoms
+ */
+public BeregnMoms() {
+    return this.BeregnSum() * 0.25;
+}
+
+/**
+ * BeregnSumInklMoms
+ */
+public BeregnSumInklMoms() {
+    return this.BeregnSum() + this.BeregnMoms();
+}
 
 }
