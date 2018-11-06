@@ -2,18 +2,28 @@ import {OrdreLinie} from "./OrdreLinie";
 
 export class Ordre {
     
-    private _ordreList : [OrdreLinie];
-    public get ordreList() : [OrdreLinie] {
+    private _ordreList : OrdreLinie[];
+    public get ordreList() : OrdreLinie[] {
         return this._ordreList;
     }
-    public set ordreList(v : [OrdreLinie]) {
+    public set ordreList(v : OrdreLinie[]) {
         this._ordreList = v;
     }
     
     
-    constructor(liste:[OrdreLinie]) {
+    private _ordreID : string;
+    public get ordreID() : string {
+        return this._ordreID;
+    }
+    // public set ordreID(v : string) {
+    //     this._ordreID = v;
+    // }
+    
+    
+    constructor(ordreID:string, liste:OrdreLinie[]) {
         
         this._ordreList = liste;
+        this._ordreID = ordreID;
 
     }
 
