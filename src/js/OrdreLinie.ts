@@ -1,6 +1,6 @@
-import {IOrdreLinie} from "IOrdreLinie"
+ import {IOrdreLinie} from "./IOrdreLinie"
 
-class OrdreLinie{
+export class OrdreLinie{
 
 private _productID : string;
 public get productID() : string {
@@ -37,6 +37,13 @@ public set unitPriceDiscount(v : number) {
     this._unitPriceDiscount = v;
 }
 
+
+// constructor(ProductID:string ,OrderQty:number, UnitPrice:number, UnitPriceDiscount:number){
+//     this.orderQty = OrderQty;
+//     this.productID = ProductID;
+//     this.unitPrice = UnitPrice;
+//     this.unitPriceDiscount = UnitPriceDiscount;
+// }
 
     constructor(linie:IOrdreLinie){
         this.orderQty = linie.OrderQty;
