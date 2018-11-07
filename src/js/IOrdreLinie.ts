@@ -1,6 +1,7 @@
 export interface IOrdreLinie{
-    ProductID: string,
-    OrderQty:number,
-    UnitPrice:number,
-    UnitPriceDiscount:number,
+    
+    productID: string,
+    orderQty:number,
+    unitPrice:number,
+    unitPriceDiscount:number,
 }
