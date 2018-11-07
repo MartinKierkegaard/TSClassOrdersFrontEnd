@@ -30,7 +30,7 @@ function printOut(liste : Ordre): string {
 }
 
 
-function getOneOrder(ordreId : string ): Ordre {
+function getOneOrder(ordreId : string ): void {
 
     let liste : OrdreLinie[] = [];
     let content : HTMLInputElement = <HTMLInputElement> document.getElementById("content");
@@ -49,15 +49,19 @@ function getOneOrder(ordreId : string ): Ordre {
             liste.push(nyLinie);  
         });
 
+        let ordre : Ordre = new Ordre(ordreId, liste);
+
+    console.log ("før return i ordre : " + ordre.AntalLinier());
+
+    let element: HTMLDivElement = <HTMLDivElement> document.getElementById("content");
+    element.innerHTML = printOut(ordre);
+    
+
     }
     )
     .catch(function (error:AxiosError):void{
             divElement.innerHTML= error.message;        
     })
-    let ordre : Ordre = new Ordre(ordreId, liste);
-
-    console.log ("før return i ordre : " + ordre.AntalLinier());
-    return ordre;
 }
 
 
@@ -82,18 +86,11 @@ let ol2 : IOrdreLinie = {
 // liste.push(orderLinie);
 // liste.push(orderLinie2);
 
-// let nyOrdre : Ordre = new Ordre("3",liste);
+ 
+function main() {
+ 
+ getOneOrder("71774");
+ 
+}
 
-
-let nyOrdre : Ordre = getOneOrder("71774");
-
-console.log ("nyOrdre " + nyOrdre);
-let e_oneorder: HTMLDivElement = <HTMLDivElement> document.getElementById("contentoneorder");
-
-let element: HTMLDivElement = <HTMLDivElement> document.getElementById("content");
-// e_oneorder.innerHTML = greeter(orderLinie);
-
-console.log("NYORDRE");
-console.log(printOut(nyOrdre));
-
-element.innerHTML = printOut(nyOrdre);
+main();
