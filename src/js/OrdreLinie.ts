@@ -46,31 +46,40 @@ public set unitPriceDiscount(v : number) {
 // }
 
     constructor(linie:IOrdreLinie){
-        this.orderQty = linie.OrderQty;
-        this.productID = linie.ProductID;
-        this.unitPrice = linie.UnitPrice;
-        this.unitPriceDiscount = linie.UnitPriceDiscount;
+        this.orderQty = linie.orderQty;
+        this.productID = linie.productID;
+        this.unitPrice = linie.unitPrice;
+        this.unitPriceDiscount = linie.unitPriceDiscount;
     }
 
 /**
  * BeregnSum
  */
-public BeregnSum() {
+public BeregnSum() : number {
     return this.orderQty * (this.unitPrice-this.unitPriceDiscount);
 }
 
 /**
  * BeregnMoms
  */
-public BeregnMoms() {
+public BeregnMoms() :number {
     return this.BeregnSum() * 0.25;
 }
 
 /**
  * BeregnSumInklMoms
  */
-public BeregnSumInklMoms() {
+public BeregnSumInklMoms() :number {
     return this.BeregnSum() + this.BeregnMoms();
+}
+
+/**
+ * Print
+ */
+public Print() : string {
+
+    return "linie, id: " + this.productID + " qty:" + this.orderQty + " sum: " +this.BeregnSumInklMoms();
+    
 }
 
 }

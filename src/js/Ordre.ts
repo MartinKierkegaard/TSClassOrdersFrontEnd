@@ -44,5 +44,15 @@ export class Ordre {
 
     }
 
+    /**
+     * AntalLinier
+  : string    */
+    public  AntalLinier() : string {
+
+        return this.ordreList.length.toString();
+        
+
+    }
+
 
 }
